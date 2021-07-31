@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components/native";
 import { Ionicons } from "@expo/vector-icons";
+import { Button, Icon } from "@ui-kitten/components";
 
-const CircleButton = styled.View`
+const CircleButton = styled(Button)`
   width: 50px;
   height: 50px;
   background-color: pink;
   position: fixed;
-  bottom: 50px;
-  right: 0;
+  bottom: 55px;
+  right: 5px;
   border-radius: 25px;
 `;
 
@@ -19,12 +20,14 @@ const Content = styled.View`
   justify-content: center;
 `;
 
+const StarIcon = () => <Ionicons name="add" size={32} />;
+
 export const FAB = () => {
   return (
-    <CircleButton>
-      <Content>
-        <Ionicons name="add" size={32} />
-      </Content>
-    </CircleButton>
+    <CircleButton
+      status="danger"
+      accessoryLeft={StarIcon}
+      onPress={() => console.log("hey")}
+    />
   );
 };
