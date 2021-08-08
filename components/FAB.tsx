@@ -12,17 +12,21 @@ const CircleButton = styled.View`
   border-radius: 25px;
 `;
 
-const Content = styled.View`
+const Content = styled.TouchableOpacity`
   display: flex;
   height: 100%;
   align-items: center;
   justify-content: center;
 `;
 
-export const FAB = () => {
+interface Props {
+  onPress?: () => void;
+}
+
+export const FAB: React.FC<Props> = ({ onPress }) => {
   return (
     <CircleButton>
-      <Content>
+      <Content onPress={onPress && onPress}>
         <Ionicons name="add" size={32} />
       </Content>
     </CircleButton>

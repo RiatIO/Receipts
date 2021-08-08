@@ -11,4 +11,8 @@ const createCollection = (data: Collections) => {
   firebase.firestore().collection("collections").add(formatData);
 };
 
-export { createCollection };
+const getCollections = async () => {
+  return firebase.firestore().collection("collections").get();
+};
+
+export { createCollection, getCollections };
